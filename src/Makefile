@@ -109,9 +109,8 @@ RAYLIB_MODULE_RAYGUI_PATH ?= $(RAYLIB_SRC_PATH)/../../raygui/src
 # Use external GLFW library instead of rglfw module
 USE_EXTERNAL_GLFW     ?= FALSE
 
-# Enable support for X11 by default on Linux when using GLFW
-# NOTE: Wayland is disabled by default, only enable if you are sure
-GLFW_LINUX_ENABLE_WAYLAND  ?= FALSE
+# Enable support for X11 and Wayland by default on Linux when using GLFW
+GLFW_LINUX_ENABLE_WAYLAND  ?= TRUE
 GLFW_LINUX_ENABLE_X11      ?= TRUE
 
 # PLATFORM_DESKTOP_SDL: It requires SDL library to be provided externally
@@ -266,7 +265,7 @@ endif
 
 # Define default C compiler and archiver to pack library: CC, AR
 #------------------------------------------------------------------------------------------------
-CC = gcc
+CC = clang
 AR = ar
 
 ifeq ($(TARGET_PLATFORM),PLATFORM_DESKTOP_GLFW)
